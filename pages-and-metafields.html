@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pages & Metafields Setup — Butterfly Neural</title>
+<meta name="description" content="Exact setup checklists for Butterfly Neural: special pages, menus, metafields, and Search & Discovery filters.">
+<style>:root{--bg:#0b1220; --panel:#111a2e; --card:#17233d; --text:#e8eefc; --muted:#b6c2e3; --line:#2b3a61; --brand:#35d0ff; --brand2:#8a7dff; --ok:#2ad38b; --warn:#ffca57; --max:1100px;} *{box-sizing:border-box} body{margin:0;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#0f1930);color:var(--text)} a{color:var(--brand)} .wrap{max-width:var(--max);margin:auto;padding:24px} .hero{background:linear-gradient(135deg,#122143,#0f1a34);border:1px solid var(--line);border-radius:14px;padding:28px;margin-bottom:22px} .badge{display:inline-block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:12px} h1,h2,h3{line-height:1.25;margin:22px 0 10px} h1{font-size:32px;margin-top:0} h2{font-size:23px;border-top:1px solid var(--line);padding-top:22px} h3{font-size:18px} p,li{color:var(--muted)} strong{color:var(--text)} nav.top{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px} nav.top a{border:1px solid var(--line);background:var(--panel);padding:7px 13px;border-radius:999px;text-decoration:none;font-size:14px} nav.top a.active{border-color:var(--brand);color:#fff} table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:14px 0} th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top} code{font-family:ui-monospace,SFMono-Regular,Consolas,Menlo,monospace;background:#0a1326;border:1px solid var(--line);border-radius:6px;padding:1px 5px;font-size:.92em;color:#cfe3ff} pre{background:#0a1326;border:1px solid var(--line);padding:14px;border-radius:10px;overflow:auto} pre code{border:0;padding:0} blockquote{border-left:3px solid var(--brand);margin:14px 0;padding:8px 14px;background:#101d36;border-radius:8px} hr{border:0;border-top:1px solid var(--line);margin:26px 0} footer{margin:30px 0 8px;color:#8fa2d3;font-size:14px} img{max-width:100%}</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="top"><a href="index.html">Overview</a><a href="features.html">Features</a><a href="pages-and-metafields.html" class="active">Pages & Metafields</a><a href="faq.html">FAQ</a><a href="changelog.html">Changelog</a></nav>
+<h1>Butterfly Neural — Pages, Menus &amp; Metafields Setup</h1>
+<p>Exact setup checklists. Everything here is done in Shopify admin / the theme editor; no code edits.</p>
+<hr>
+<h2>A) Pages to create</h2>
+<p>Create each page under <strong>Content → Pages</strong>, then set its <strong>Theme template</strong> (visible in the page editor’s right-hand panel). If the template dropdown is empty, publish/upload the theme first — templates ship with the theme.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Page (suggested title)</th>
+<th>Theme template to assign</th>
+<th>What it powers</th>
+<th>Where to link it</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Wishlist</td>
+<td><code>page.wishlist</code></td>
+<td>The wishlist page (browser-local saves)</td>
+<td>Header section → <em>Wishlist Page</em> (makes the header heart work)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Compare</td>
+<td><code>page.compare</code></td>
+<td>Full comparison table (up to 3 products)</td>
+<td>Add to a menu/footer if you want a standing link</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Track order</td>
+<td><code>page.track-order</code></td>
+<td>Order-tracking form → your provider</td>
+<td>Mobile More sheet default; menus</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Find a store</td>
+<td><code>page.find-a-store</code></td>
+<td>Store locator with search + distances</td>
+<td>Header utility bar / menus / More sheet</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Bundle builder</td>
+<td><code>page.bundle</code></td>
+<td>3-step build-a-bundle page</td>
+<td>Menus, homepage, product pages</td>
+</tr>
+</tbody></table>
+<h3>Step-by-step (same for each page)</h3>
+<ol>
+<li>Go to <strong>Content → Pages → Add page</strong>.</li>
+<li>Enter the title (e.g., “Wishlist”). The handle is created automatically (<code>/pages/wishlist</code> etc.).</li>
+<li>Set <strong>Visibility</strong> to Visible.</li>
+<li>In <strong>Theme template</strong>, choose the template from the table above.</li>
+<li><strong>Save.</strong></li>
+<li>Wire it up:<ul>
+<li><strong>Wishlist:</strong> Customize → Header → <em>Wishlist Page</em> → select the page.</li>
+<li><strong>Track order:</strong> Customize → open the page → Track order section → choose provider (AfterShip / Parcel Panel / custom) and paste your branded tracking URL; set parameter names if your provider needs them.</li>
+<li><strong>Find a store:</strong> Customize → open the page → Store locator → add <em>Store</em> blocks (name, address, phone, email, hours, map URL, latitude/longitude, image, services).</li>
+<li><strong>Bundle builder:</strong> Customize → open the page → Bundle builder → add <em>Base Product</em> and <em>Add-on Product</em> blocks.</li>
+<li><strong>Compare:</strong> nothing to configure on the page itself; products arrive when shoppers tap Compare. Optionally add the page to a menu.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>Template dropdown shows bare suffixes (“wishlist”, “compare”…) in some admin versions — selecting “wishlist” <strong>is</strong> <code>page.wishlist</code>. That’s expected.</p>
+</blockquote>
+<hr>
+<h2>B) Menus to create or check</h2>
+<p>Build menus under <strong>Content → Menus</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Menu</th>
+<th>Used by</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Main menu</strong> (handle <code>main-menu</code>)</td>
+<td>Header navigation, mega menu</td>
+<td>The header’s <em>Menu</em> setting defaults to <code>main-menu</code>. Give one item child links to power the mega menu (item handle default <code>shop-by-categories</code>, changeable in Header settings).</td>
+</tr>
+<tr>
+<td><strong>Categories menu</strong> (any menu you pick)</td>
+<td>Header search-bar “All Categories” dropdown + mobile Categories sheet</td>
+<td>Header → <em>Categories Menu</em>. If empty, the Categories sheet falls back to mega-menu children, then the main menu.</td>
+</tr>
+<tr>
+<td><strong>Footer: Quick links</strong></td>
+<td>Footer column 1</td>
+<td>Footer section → <em>Links Menu</em> (schema default points at the <code>footer</code> menu — repoint it to your own).</td>
+</tr>
+<tr>
+<td><strong>Footer: Support</strong></td>
+<td>Footer column 2</td>
+<td>Footer section → <em>Support Menu</em>.</td>
+</tr>
+<tr>
+<td><strong>Footer: Legal / Terms</strong></td>
+<td>Footer Legal column</td>
+<td>Footer section → <em>Legal Menu</em>. Put your Privacy / Terms / Refund / Shipping pages here. (On mobile, policies also appear automatically in the More sheet — no menu needed for that.)</td>
+</tr>
+<tr>
+<td><strong>Mobile More menu</strong> (optional)</td>
+<td>Mobile bottom-nav “More” sheet</td>
+<td>Theme settings → Mobile navigation → <em>Mobile More Menu</em> (<code>mobile_more_menu</code>). If unset, the sheet uses built-in links (Track Order, Blog, Contact, FAQ, Find a Store, Account) from the page settings beside it: <code>mobile_track_order_page</code>, <code>mobile_blog</code>, <code>mobile_contact_page</code>, <code>mobile_faq_page</code>, <code>mobile_store_page</code>.</td>
+</tr>
+<tr>
+<td><strong>Customer account menu</strong></td>
+<td>Account icon (new Shopify accounts)</td>
+<td>Theme setting <code>customer_account_menu</code>, default <code>customer-account-main-menu</code>.</td>
+</tr>
+</tbody></table>
+<p>Mobile kit cards also expect three collections to exist if you link them: <code>starter-kits</code>, <code>pro-kits</code>, <code>enterprise-kits</code> (titles/descriptions/images under Theme settings → Mobile navigation → Kit cards).</p>
+<hr>
+<h2>C) Metafields</h2>
+<p>Create under <strong>Settings → Custom data → Products</strong> (Add definition). Types must match exactly.</p>
+<table>
+<thead>
+<tr>
+<th>Namespace &amp; key</th>
+<th>Type</th>
+<th>Used by</th>
+<th>What to enter</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>custom.related_articles</code></td>
+<td><strong>Article — list of entries</strong> (<code>list.article_reference</code>)</td>
+<td>Product page → <em>Related articles</em> section</td>
+<td>Pick the blog articles related to that product. The section renders nothing until at least one article is linked.</td>
+</tr>
+<tr>
+<td><code>custom.compare_specs</code></td>
+<td><strong>List of metaobjects</strong> whose entries have <code>label</code> and <code>value</code> fields</td>
+<td>Compare bar/modal + Compare page spec rows</td>
+<td>One entry per spec, e.g., label “Battery”, value “20 hours”. Price, vendor, type and availability rows are automatic.</td>
+</tr>
+<tr>
+<td><code>butterfly.use_case</code></td>
+<td>Single line text</td>
+<td>Smart recommendations (<code>metafield_match</code>, <code>best_match</code>)</td>
+<td>A short use-case slug you reuse across products, e.g. <code>home</code>, <code>office</code>, <code>travel</code>. Same use case = +3 points.</td>
+</tr>
+<tr>
+<td><code>butterfly.skill_level</code></td>
+<td>Single line text</td>
+<td>Smart recommendations (<code>metafield_match</code>, <code>best_match</code>)</td>
+<td>e.g. <code>beginner</code>, <code>intermediate</code>, <code>expert</code>. Same level = +2 points.</td>
+</tr>
+</tbody></table>
+<p>Notes:</p>
+<ul>
+<li><code>butterfly.use_case</code> / <code>butterfly.skill_level</code> are optional. Without them, smart recommendations still work on shared tags (+1 per shared tag) with the <code>tag_overlap</code> or <code>best_match</code> strategy.</li>
+<li>The kit-selector quiz and gadget finder do <strong>not</strong> need metafields: kit-selector results are the <em>Recommendation</em> blocks you author; gadget-finder answers map to ordinary product <strong>tags</strong>.</li>
+<li>Metaobject for compare specs: if the “list of metaobjects” type is new to you — Settings → Custom data → Metaobjects → Add definition (fields <code>label</code>, <code>value</code>, both single-line text), then create the product metafield as a list referencing that metaobject type. The theme reads only <code>label</code>/<code>value</code>.</li>
+</ul>
+<hr>
+<h2>D) Shopify Search &amp; Discovery (filters)</h2>
+<p>Collection and search filters are <strong>configured in Shopify’s app, not in the theme</strong>:</p>
+<ol>
+<li>Install/open <strong>Search &amp; Discovery</strong> (Shopify admin → Apps).</li>
+<li>Go to <strong>Filters</strong> and add the filters you want (availability, price, vendor, product type, tags, or metafield-based filters).</li>
+<li>Optionally tune search settings and product boosts in the same app.</li>
+<li>The theme automatically renders your filters on collection pages and the search page, with sorting. No theme setting is needed.</li>
+</ol>
+<p>If filters “don’t filter”, the cause is almost always app-side (filter not added, or products missing the tagged/metafield values) — see FAQ.md.</p>
+<hr>
+<h2>E) Quick wiring checklist</h2>
+<ol>
+<li>Pages created + templates assigned (table A).</li>
+<li>Header <em>Wishlist Page</em> selected; <em>Menu</em> = your main menu.</li>
+<li>Footer menus repointed to your menus (not the schema defaults).</li>
+<li>Metafields created (table C); a few products filled in.</li>
+<li>Search &amp; Discovery filters configured (section D).</li>
+<li>Policies written under Settings → Policies (they appear in the mobile More sheet and belong in your footer Legal menu).</li>
+<li>Promo popup left disabled until you actually want it (Footer group → Promo popup → enable).</li>
+</ol>
+
+<footer>Butterfly Neural by VOOQIO INC · <a href="https://butterfly-ai-studios.github.io/theme-support/">Theme support</a></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FAQ & Troubleshooting — Butterfly Neural</title>
+<meta name="description" content="Frequently asked questions and troubleshooting for the Butterfly Neural Shopify theme.">
+<style>:root{--bg:#0b1220; --panel:#111a2e; --card:#17233d; --text:#e8eefc; --muted:#b6c2e3; --line:#2b3a61; --brand:#35d0ff; --brand2:#8a7dff; --ok:#2ad38b; --warn:#ffca57; --max:1100px;} *{box-sizing:border-box} body{margin:0;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#0f1930);color:var(--text)} a{color:var(--brand)} .wrap{max-width:var(--max);margin:auto;padding:24px} .hero{background:linear-gradient(135deg,#122143,#0f1a34);border:1px solid var(--line);border-radius:14px;padding:28px;margin-bottom:22px} .badge{display:inline-block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:12px} h1,h2,h3{line-height:1.25;margin:22px 0 10px} h1{font-size:32px;margin-top:0} h2{font-size:23px;border-top:1px solid var(--line);padding-top:22px} h3{font-size:18px} p,li{color:var(--muted)} strong{color:var(--text)} nav.top{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px} nav.top a{border:1px solid var(--line);background:var(--panel);padding:7px 13px;border-radius:999px;text-decoration:none;font-size:14px} nav.top a.active{border-color:var(--brand);color:#fff} table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:14px 0} th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top} code{font-family:ui-monospace,SFMono-Regular,Consolas,Menlo,monospace;background:#0a1326;border:1px solid var(--line);border-radius:6px;padding:1px 5px;font-size:.92em;color:#cfe3ff} pre{background:#0a1326;border:1px solid var(--line);padding:14px;border-radius:10px;overflow:auto} pre code{border:0;padding:0} blockquote{border-left:3px solid var(--brand);margin:14px 0;padding:8px 14px;background:#101d36;border-radius:8px} hr{border:0;border-top:1px solid var(--line);margin:26px 0} footer{margin:30px 0 8px;color:#8fa2d3;font-size:14px} img{max-width:100%}</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="top"><a href="index.html">Overview</a><a href="features.html">Features</a><a href="pages-and-metafields.html">Pages & Metafields</a><a href="faq.html" class="active">FAQ</a><a href="changelog.html">Changelog</a></nav>
+<h1>Butterfly Neural — FAQ &amp; Troubleshooting</h1>
+<h3>What do I need before I start?</h3>
+<p>A Shopify store with the Online Store channel, admin access, and (for filters) the free <strong>Search &amp; Discovery</strong> app. No paid apps are required. Setup order that works: logo → menus → pages → metafields → filters → feature toggles. Full checklists are in <a href="PAGES-AND-METAFIELDS.md">PAGES-AND-METAFIELDS.md</a>.</p>
+<h3>Which preset should I choose?</h3>
+<p><strong>Butterfly Neural</strong> (dark flagship) or <strong>Light Minimal</strong> (white/blue). Both include every feature; they differ in palette and glow intensity. You can recolor either afterwards. Note: with a preset applied, compare and the bundle builder stay enabled and the FAB help button stays off — switch the <em>Preset profile</em> theme setting (<code>preset_profile</code>) to <strong>Manual</strong> if you want to override that per toggle.</p>
+<hr>
+<h2>Troubleshooting</h2>
+<h3>My collection/search filters don’t filter (or a filter is missing)</h3>
+<p>Filters are managed in Shopify’s <strong>Search &amp; Discovery</strong> app, not in the theme.</p>
+<ol>
+<li>Open <strong>Apps → Search &amp; Discovery → Filters</strong>.</li>
+<li>Confirm the filter exists and is enabled (availability, price, vendor, tags, metafield filters…).</li>
+<li>Confirm your products actually carry the values (e.g., the tag or metafield) the filter uses.</li>
+<li>Reload the collection/search page. The theme renders whatever the app provides — there is no theme setting to fix here.</li>
+</ol>
+<h3>The compare bar/table is empty</h3>
+<p>That’s the expected empty state. Compare fills only when a shopper taps <strong>Compare</strong> on a product card (up to 3 products, stored in their browser). To test: open a collection, tap Compare on two products, then open the bar or visit your Compare page (template <code>page.compare</code>). If the buttons don’t appear at all: you’re on the <strong>Manual</strong> preset profile with <em>Show product compare</em> (<code>enable_compare</code>) off — turn it on (both presets keep compare on). Custom spec rows need the <code>custom.compare_specs</code> metafield filled in (see PAGES-AND-METAFIELDS.md).</p>
+<h3>The promo popup never shows</h3>
+<p><strong>By design:</strong> the popup ships <strong>disabled</strong> (Footer group → <em>Promo popup</em> is disabled on a fresh install). Enable the section, write your copy, then check: <em>Show on</em> (all pages vs homepage), <em>Delay before showing</em> (default 8s), and the frequency cap — after a close or signup it stays hidden for the days you set (default 30) in that browser. Test in a private/incognito window.</p>
+<h3>Related articles is empty on a product</h3>
+<p>The section shows only articles linked to <strong>that product</strong> via the <code>custom.related_articles</code> metafield (Settings → Custom data → Products; type: Article, list of entries). Nothing linked = nothing rendered — that’s intentional. (Optional: enable <em>Show latest posts when no articles are linked</em> and pick a <em>Fallback blog</em> in the section settings.)</p>
+<h3>Where is search on mobile?</h3>
+<p>In the header: on screens ≤990px the desktop search bar hides and a <strong>search icon button</strong> appears next to the wishlist/cart icons. Tapping it opens the full search overlay with predictive suggestions. If suggestions don’t appear, check Theme settings → Search → <em>Enable Autocomplete</em> (<code>enable_autocomplete</code>) is on.</p>
+<h3>Light Minimal still looks dark / colors look wrong</h3>
+<ol>
+<li>Confirm the <strong>Light Minimal</strong> preset is actually applied (Theme settings → preset picker) — or that <em>Preset profile</em> isn’t set to a dark manual palette.</li>
+<li>Hard-refresh (cached CSS can linger right after switching presets).</li>
+<li>Note: the header pill, search overlay, quick-view and card action buttons use intentional <strong>dark-glass styling in both presets</strong> (white icons/text over product imagery) — that part is by design, not a bug.</li>
+<li>Custom CSS/apps can override palette variables; disable them briefly to isolate.</li>
+</ol>
+<h3>The wishlist page is blank / the header heart goes nowhere</h3>
+<p>Create a page with template <code>page.wishlist</code>, then select it in <strong>Header → Wishlist Page</strong>. The wishlist itself is stored in the shopper’s browser — it will be empty on a new device/browser by design (no account sync).</p>
+<h3>The mobile bottom bar hides my footer</h3>
+<p>It shouldn’t: the bar is ~77px and the footer keeps clearance above it (compare bar also sits above it). If you added custom CSS with fixed elements, check their z-index/bottom offsets against <code>--mobile-nav-height</code>.</p>
+<h3>The kit cards / Categories sheet point to empty pages</h3>
+<ul>
+<li>Kits sheet cards link to <code>/collections/starter-kits</code>, <code>/collections/pro-kits</code>, <code>/collections/enterprise-kits</code> — create collections with those handles (or don’t enable the Kits tab).</li>
+<li>The Categories sheet shows your Header <em>Categories Menu</em>; if empty it falls back to the mega-menu children, then the main menu. Build the menu under Content → Menus.</li>
+</ul>
+<h3>Track order doesn’t send shoppers anywhere</h3>
+<p>On the Track order page (template <code>page.track-order</code>), open the section and set: provider (AfterShip / Parcel Panel) with your branded tracking URL, or <strong>custom</strong> with your own tracking URL and the parameter names your provider expects (<code>order_number</code>, <code>email</code>, optional postal code).</p>
+<h3>My announcement marquee won’t scroll / slider won’t rotate</h3>
+<p>Announcement bar (Header group): <em>Text display</em> = <strong>Marquee</strong> for scrolling (adjust <em>Scroll speed</em>, <em>Pause scrolling on hover</em>) or <strong>Slider</strong> for rotation (<em>Auto-rotate Announcements</em>, <em>Rotation Duration</em>). Also check <em>Show on Mobile</em> if it vanishes on phones, and whether you closed it earlier in that browser session.</p>
+<h3>Can I move “Related articles”, “Compare”, etc. to a different spot?</h3>
+<p>Yes — product template sections are ordinary OS 2.0 sections; drag them in the theme editor. Sections can also be added to other templates where the editor allows; some (related articles, comparison) only make sense on product pages.</p>
+<h3>Does the theme work with Shopify apps?</h3>
+<p>Yes. App blocks are supported in product areas (main product and featured product include the <code>@app</code> block), and standard templates are included for cart, account, search, etc. If an app injects its own styles/scripts, conflicts are the app’s surface — test with the app disabled to isolate.</p>
+<h3>Will updating the theme erase my content?</h3>
+<p>Your products, pages, menus, and policies live in Shopify, not the theme — they’re safe. Theme-editor settings and template assignments can change when you publish a different theme, so duplicate your current theme before publishing an update and re-check the quick-start list.</p>
+<h3>How do I get help?</h3>
+<p>Support: <a href="https://butterfly-ai-studios.github.io/theme-support/">https://butterfly-ai-studios.github.io/theme-support/</a> — include your store URL, theme version (1.0.26), preset, and screenshots. Support covers setup guidance and bugs in unmodified theme code.</p>
+
+<footer>Butterfly Neural by VOOQIO INC · <a href="https://butterfly-ai-studios.github.io/theme-support/">Theme support</a></footer>
+</div>
+</body>
+</html>

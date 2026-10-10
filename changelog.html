@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Changelog — Butterfly Neural</title>
+<meta name="description" content="Version history for the Butterfly Neural Shopify theme.">
+<style>:root{--bg:#0b1220; --panel:#111a2e; --card:#17233d; --text:#e8eefc; --muted:#b6c2e3; --line:#2b3a61; --brand:#35d0ff; --brand2:#8a7dff; --ok:#2ad38b; --warn:#ffca57; --max:1100px;} *{box-sizing:border-box} body{margin:0;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#0f1930);color:var(--text)} a{color:var(--brand)} .wrap{max-width:var(--max);margin:auto;padding:24px} .hero{background:linear-gradient(135deg,#122143,#0f1a34);border:1px solid var(--line);border-radius:14px;padding:28px;margin-bottom:22px} .badge{display:inline-block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:12px} h1,h2,h3{line-height:1.25;margin:22px 0 10px} h1{font-size:32px;margin-top:0} h2{font-size:23px;border-top:1px solid var(--line);padding-top:22px} h3{font-size:18px} p,li{color:var(--muted)} strong{color:var(--text)} nav.top{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px} nav.top a{border:1px solid var(--line);background:var(--panel);padding:7px 13px;border-radius:999px;text-decoration:none;font-size:14px} nav.top a.active{border-color:var(--brand);color:#fff} table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:14px 0} th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top} code{font-family:ui-monospace,SFMono-Regular,Consolas,Menlo,monospace;background:#0a1326;border:1px solid var(--line);border-radius:6px;padding:1px 5px;font-size:.92em;color:#cfe3ff} pre{background:#0a1326;border:1px solid var(--line);padding:14px;border-radius:10px;overflow:auto} pre code{border:0;padding:0} blockquote{border-left:3px solid var(--brand);margin:14px 0;padding:8px 14px;background:#101d36;border-radius:8px} hr{border:0;border-top:1px solid var(--line);margin:26px 0} footer{margin:30px 0 8px;color:#8fa2d3;font-size:14px} img{max-width:100%}</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="top"><a href="index.html">Overview</a><a href="features.html">Features</a><a href="pages-and-metafields.html">Pages & Metafields</a><a href="faq.html">FAQ</a><a href="changelog.html" class="active">Changelog</a></nav>
+<h1>Butterfly Neural — Changelog</h1>
+<p>Versioning: the current package is <strong>1.0.26</strong>. Earlier numbered builds (1.0.0–1.0.22) were development iterations of this same release; their work is summarized under 1.0.22 because the repo was not tagged per build. Summaries below reflect the actual git history — nothing here is aspirational.</p>
+<hr>
+<h2>1.0.26 — Related articles on product pages</h2>
+<ul>
+<li>New <strong>Related articles</strong> section on the product template (after product recommendations). It renders only articles the merchant linked to the product through the <code>custom.related_articles</code> metafield (list of article references); nothing is shown when nothing is linked. Optional fallback (default <strong>off</strong>) shows latest posts from a merchant-picked blog.</li>
+<li>Localized “Read article” string in all 6 bundled locales (en, de, es, fr, ja, pt).</li>
+<li>Theme Check: 104 files, 0 offenses.</li>
+</ul>
+<h2>1.0.25 — Legal links in the mobile More sheet + Light Minimal backdrop fix</h2>
+<ul>
+<li>The mobile <strong>More</strong> sheet gains an automatic <strong>Legal</strong> group built from <code>shop.policies</code> — real policy titles/URLs, hidden when a store has no policies. Localized “Legal” heading in all 6 locales.</li>
+<li><strong>Fix (Light Minimal):</strong> the flagship <code>body</code> rule in theme.css was never closed, so the <code>body.theme-style-light</code> override nested inside it and never matched — Light Minimal pages kept the dark flagship gradient over the white palette. The rule is now closed and the override applies. Verified in a 390×844 Light simulation built from the shipped files (white backdrop, navy titles, sky-blue prices).</li>
+</ul>
+<h2>1.0.24 — Mobile search + touch-visible card actions</h2>
+<ul>
+<li><strong>Mobile header search:</strong> on ≤990px the desktop search bar hides; a search icon button (previously a CSS class with no element) now sits in the header action row and opens the search overlay. All <code>[data-search-toggle]</code> elements are bound, with <code>aria-expanded</code> kept in sync.</li>
+<li><strong>Product-card actions on touch:</strong> Quick Add / Quick View / Wishlist / Compare were hover-only (unreachable on phones). On <code>(hover: none)</code> they render as an always-visible compact icon bar (44px tall, labels kept for assistive tech), plus a <code>:focus-within</code> reveal for keyboard users. Applied in both <code>theme.css</code> and the collection grid’s card CSS.</li>
+<li>Verified in a 390×844 touch simulation from the real files: search overlay opens/focuses/closes; Quick View loads; Quick Add posts to cart; Compare toggles, bar and storage all pass.</li>
+</ul>
+<h2>1.0.23 — Neutral merchant defaults (naming cleanup)</h2>
+<ul>
+<li>Shipped defaults no longer carry demo/AI-gadget copy: hero/slideshow headings default to “Butterfly Neural”, “New to AI gadgets” → “New to gadgets”, mega-menu default text neutralized; matching preset content in <code>templates/index.json</code>, <code>index.minimal.json</code>, <code>page.demo-minimal.json</code> (and the <code>/listings</code> mirrors). The theme name is <strong>Butterfly Neural</strong> everywhere; demo store names are store settings, not theme content.</li>
+</ul>
+<h2>1.0.22 and earlier — how this release was built (summary of git history)</h2>
+<ul>
+<li><strong>Mobile bottom navigation:</strong> distinct Kits (package) icon vs Products (bag) icon; <code>aria-controls</code>/<code>aria-expanded</code> wiring on Kits/Categories/More sheets, synced in <code>mobile-nav.js</code> and the header fallback handler.</li>
+<li><strong>Footer/header logos follow the merchant:</strong> a merchant-uploaded logo wins; otherwise the bundled butterfly mark plus the live shop name (preset-aware gradient). No hard-coded store names in shipped files; <code>theme_author</code> is <strong>VOOQIO INC</strong>.</li>
+<li><strong>Announcement bar:</strong> optional scrolling (marquee) text with direction/speed/pause-on-hover over image/GIF backgrounds; fully collapses on close (no leftover gap); text follows the preset palette.</li>
+<li><strong>Light Minimal correctness:</strong> the whole palette (incl. glows, glass, premium surfaces) is emitted from effective preset vars in <code>theme.liquid</code>; footer text, card actions (dark-glass pills with white text in both presets), switchers, cart drawer, filters panel, and compare bar/modal all follow the preset. Sold-out badges are dark chips in both presets.</li>
+<li><strong>Cart:</strong> free-shipping progress + cross-sell row in the drawer; AJAX adds open the drawer instead of navigating to <code>/cart</code>; sticky ATC adds via AJAX.</li>
+<li><strong>Compare:</strong> one localStorage record set, client-side compare page (<code>page.compare</code>), honest price filter, compare CTA ink matches quick-add; max 3 products.</li>
+<li><strong>Search:</strong> predictive-search autocomplete fixed (real prices, locale currency), soft focus ring on the search pill.</li>
+<li><strong>Wishlist</strong> (browser-local, account-free), <strong>WhatsApp product inquiry</strong> (optional merchant number, off by default), <strong>promo popup</strong> ships disabled and frequency-capped, <strong>kit selector</strong> with real (merchant-authored) recommendations, <strong>gadget finder</strong> tag matching, <strong>deal countdown</strong> with merchant-set dates only.</li>
+<li><strong>Honesty pass:</strong> invented named testimonials replaced with clearly-labelled placeholders (no ratings, no claims); free-shipping/AI badge defaults neutralized; bundle builder phantom discount removed; “Smart recommendations” documented as tag/metafield matching.</li>
+<li>Store locator upgraded (search, near-me distance, service badges); language/currency switchers wire every instance; collection grid paginates instead of silently truncating at 50 products; header nav defaults to the standard <code>main-menu</code> handle.</li>
+</ul>
+<hr>
+<h3>Notes</h3>
+<ul>
+<li>Shopify’s ZIP importer once silently dropped 6 files because of blank schema <code>&quot;default&quot;: &quot;&quot;</code> values (fixed in commit <code>ef7fbca</code>). If you ever upload by ZIP and a section seems missing, re-upload the current package or contact support.</li>
+<li>The bundled footer trusts copy, hero copy and testimonial text are <strong>starter placeholders</strong> — write your own before launch.</li>
+</ul>
+
+<footer>Butterfly Neural by VOOQIO INC · <a href="https://butterfly-ai-studios.github.io/theme-support/">Theme support</a></footer>
+</div>
+</body>
+</html>

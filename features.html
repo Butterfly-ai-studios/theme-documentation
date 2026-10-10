@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Features — Butterfly Neural</title>
+<meta name="description" content="Every feature of the Butterfly Neural Shopify theme: what it does, where it lives, and how to set it up.">
+<style>:root{--bg:#0b1220; --panel:#111a2e; --card:#17233d; --text:#e8eefc; --muted:#b6c2e3; --line:#2b3a61; --brand:#35d0ff; --brand2:#8a7dff; --ok:#2ad38b; --warn:#ffca57; --max:1100px;} *{box-sizing:border-box} body{margin:0;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#0f1930);color:var(--text)} a{color:var(--brand)} .wrap{max-width:var(--max);margin:auto;padding:24px} .hero{background:linear-gradient(135deg,#122143,#0f1a34);border:1px solid var(--line);border-radius:14px;padding:28px;margin-bottom:22px} .badge{display:inline-block;padding:4px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:12px} h1,h2,h3{line-height:1.25;margin:22px 0 10px} h1{font-size:32px;margin-top:0} h2{font-size:23px;border-top:1px solid var(--line);padding-top:22px} h3{font-size:18px} p,li{color:var(--muted)} strong{color:var(--text)} nav.top{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px} nav.top a{border:1px solid var(--line);background:var(--panel);padding:7px 13px;border-radius:999px;text-decoration:none;font-size:14px} nav.top a.active{border-color:var(--brand);color:#fff} table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:14px 0} th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top} code{font-family:ui-monospace,SFMono-Regular,Consolas,Menlo,monospace;background:#0a1326;border:1px solid var(--line);border-radius:6px;padding:1px 5px;font-size:.92em;color:#cfe3ff} pre{background:#0a1326;border:1px solid var(--line);padding:14px;border-radius:10px;overflow:auto} pre code{border:0;padding:0} blockquote{border-left:3px solid var(--brand);margin:14px 0;padding:8px 14px;background:#101d36;border-radius:8px} hr{border:0;border-top:1px solid var(--line);margin:26px 0} footer{margin:30px 0 8px;color:#8fa2d3;font-size:14px} img{max-width:100%}</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="top"><a href="index.html">Overview</a><a href="features.html" class="active">Features</a><a href="pages-and-metafields.html">Pages & Metafields</a><a href="faq.html">FAQ</a><a href="changelog.html">Changelog</a></nav>
+<h1>Butterfly Neural — Feature Guide</h1>
+<p>Every merchant-facing feature in the theme, where it appears, and how to configure it. Global switches live in <strong>Customize → Theme settings</strong>; per-section options live in the theme editor when you select the section.</p>
+<blockquote>
+<p><strong>Preset behaviour:</strong> with the <strong>Butterfly Neural</strong> or <strong>Light Minimal</strong> preset applied (theme setting <code>preset_profile</code>), product compare and the bundle builder stay enabled and the FAB help button stays off. Set <code>preset_profile</code> to <strong>Manual</strong> if you want the individual toggles below to apply exactly as switched.</p>
+</blockquote>
+<hr>
+<h2>Header</h2>
+<h3>Logo with shop-name fallback</h3>
+<p>Shows your uploaded logo, or — if none is uploaded — the bundled butterfly mark together with your shop name. The footer uses the same idea (your footer logo image wins; otherwise mark + shop name).
+<strong>Configure:</strong> Header section → <em>Logo Image</em> and <em>Logo Width</em>; Footer section → <em>Show Footer Logo</em>, <em>Footer Logo Image</em>, <em>Footer Logo Width/Height</em>. Nothing is hard-coded: names always come from your store.</p>
+<h3>Sticky header &amp; utility bar</h3>
+<p>A sticky header with an optional utility bar at the very top: rotating announcements (add <em>Utility announcement</em> blocks), an optional Help Center link, an optional Find a Store link, and optional social icons.
+<strong>Configure:</strong> Header section → <em>Sticky Header</em>, <em>Enable Utility Bar</em>, <em>Auto-Rotate Announcements</em>, <em>Announcement Rotation Interval</em>, <em>Help Center Page/URL</em>, <em>Find a Store Page/URL</em>.
+<strong>Needs from you:</strong> a help/store page if you enable those links.</p>
+<h3>Mega menu &amp; dropdowns</h3>
+<p>Desktop navigation with a wide mega-menu panel for one chosen menu item, optional highlighted item, an optional “premium” dropdown style, and hover promo panels with cards.
+<strong>Configure:</strong> Header section → <em>Enable Mega Menu</em>, <em>Mega Menu Item Handle</em> (default <code>shop-by-categories</code>), <em>Mega Menu Columns</em>, <em>Mega Menu CTA Collection</em>; blocks <em>Menu tile</em>, <em>Promo panel</em>, <em>Mega feature</em>; <em>Highlight a Menu Item</em>; <em>Enable Promo Hover Panels</em>.
+<strong>Needs from you:</strong> a menu (Header → <em>Menu</em>, default handle <code>main-menu</code>) with child links for the mega-menu item.</p>
+<h3>Search bar, search overlay &amp; predictive suggestions</h3>
+<p>The desktop search bar opens a full search overlay. As the shopper types, predictive suggestions appear (products, with optional collection/page results), including recent searches. Product prices in suggestions are your real, current prices.
+<strong>Configure:</strong> Header section → <em>Show Search Bar (Desktop)</em>, <em>Categories Label</em>, <em>Categories Menu</em> (the “All Categories” dropdown); Theme settings → <strong>Search</strong>: <em>Enable Autocomplete</em> (<code>enable_autocomplete</code>), <em>Autocomplete Results Limit</em>, <em>Show Product Thumbnails</em>, <em>Show Collections &amp; Pages</em> (<code>show_collections_pages</code>, off by default), <em>Show Recent Searches</em>.
+<strong>Mobile:</strong> the header shows a search icon button on small screens (≤990px) that opens the same overlay — see Mobile bottom navigation.</p>
+<h3>Wishlist &amp; cart icons, currency/language switchers</h3>
+<p>Header icons link to your wishlist page and open the cart drawer. Currency and language switchers use Shopify Markets localization forms (single-language stores show a plain label, not a dead dropdown).
+<strong>Configure:</strong> Header section → <em>Wishlist Page</em> (pick the page you created with the <code>page.wishlist</code> template), <em>Show Currency Switcher</em>, <em>Show Language Switcher</em>.
+<strong>Needs from you:</strong> the Wishlist page (see PAGES-AND-METAFIELDS.md); markets configured in Shopify Settings for switchers to list options.</p>
+<h3>Cart drawer with free-shipping progress</h3>
+<p>Slide-out cart with an optional free-shipping progress bar and an optional cross-sell row from a collection you pick. AJAX adds from quick add, bundles, and the sticky bar open the drawer instead of jumping to the cart page.
+<strong>Configure:</strong> Cart drawer section → <em>Show free shipping bar</em> (<code>show_free_shipping_bar</code>), <em>Free shipping threshold</em> (in shop currency), messages, <em>Show cross-sell</em> (<code>show_cross_sell</code>), <em>Cross-sell collection/heading/limit</em>.</p>
+<hr>
+<h2>Announcement bar</h2>
+<p>A top bar (in the Header group) with one or more announcements, each with icon, text, and link. Text display is your choice:</p>
+<ul>
+<li><strong>Slider</strong> (default): announcements rotate automatically (<em>Auto-rotate Announcements</em>, <em>Rotation Duration</em> default 5s).</li>
+<li><strong>Marquee</strong>: continuously scrolling text, with <em>Scroll speed</em> and <em>Pause scrolling on hover</em>.</li>
+</ul>
+<p>It also supports an optional background image/GIF with a darkening overlay, a close button, mobile visibility toggle, auto-close timer, and close-on-scroll. Closing it collapses the bar completely (no leftover gap).
+<strong>Configure:</strong> Header group → <strong>Announcement bar</strong> section; add <em>Announcement</em> blocks.
+<strong>Preset running the demos:</strong> the slider (calmer); marquee is there when you want it.</p>
+<hr>
+<h2>Mobile bottom navigation</h2>
+<p>An app-style fixed bottom bar on mobile/tablet (rendered by the Header section), with tabs you can toggle: <strong>Home, Kits, Products, Categories, More</strong>. Labels can be shown or hidden; optional hide-on-scroll. At phone sizes the bar is ~77px tall with 56px tap targets.</p>
+<p><strong>Configure:</strong> Theme settings → <strong>Mobile navigation</strong>: <em>Enable Mobile Bottom Navigation</em> (<code>enable_mobile_nav</code>), <em>Show Labels</em>, <em>Enable Kits/Products/Categories Tabs</em>, <em>Enable More Tab (Mobile)</em> (<code>enable_mobile_more_menu</code>), <em>More Tab Label</em>, <em>Hide on Scroll Down</em> (<code>enable_hide_on_scroll</code>, off by default).</p>
+<h3>Sheets (bottom panels)</h3>
+<ul>
+<li><strong>Kits sheet:</strong> three kit cards — Starter / Pro / Enterprise — each linking to <code>/collections/starter-kits</code>, <code>/collections/pro-kits</code>, <code>/collections/enterprise-kits</code>. Titles, descriptions, and images come from Theme settings → Mobile navigation → “Kit cards”. Create collections with those handles to use it.</li>
+<li><strong>Categories sheet:</strong> a browsable category grid from your categories menu (Header → <em>Categories Menu</em>), falling back to your mega-menu children, then the main menu. Title: Header → <em>Categories Sheet Title</em>.</li>
+<li><strong>More sheet:</strong> support/info links. If you assign a menu (Theme settings → <em>Mobile More Menu</em>, <code>mobile_more_menu</code>), its links are used; otherwise the sheet shows Track Order, Blog, Contact, optional FAQ, optional Find a Store, and Login / My Account. Page targets come from <code>mobile_track_order_page</code>, <code>mobile_blog</code>, <code>mobile_contact_page</code>, <code>mobile_faq_page</code>, <code>mobile_store_page</code> (sensible path defaults like <code>/pages/track-order</code> apply).</li>
+<li><strong>Automatic Legal links:</strong> below those links, the More sheet adds a <strong>Legal</strong> group built automatically from your Shopify policies (Settings → Policies): every policy you actually have (Privacy, Terms, Refund, Shipping…) appears with its real title and URL; nothing is hard-coded, and the group hides entirely if you have no policies.</li>
+</ul>
+<h3>Mobile header search</h3>
+<p>On phones, the desktop search bar hides and a <strong>search icon button</strong> appears in the header action row (next to wishlist/cart). It opens the same search overlay with predictive suggestions — so search is always one tap away on mobile.</p>
+<hr>
+<h2>Product cards</h2>
+<p>Used across collection grids, featured products, recommendations, search, and more.</p>
+<ul>
+<li><strong>Quick add</strong> — adds the first available variant via AJAX and opens the cart drawer; shows an “Added!” confirmation.</li>
+<li><strong>Quick view</strong> — opens a modal with gallery image, variant picker, quantity, add-to-cart, full-details link, and (if enabled) the WhatsApp inquiry link. Configure globally: Theme settings → <em>Enable quick view</em> (<code>enable_quick_view</code>).</li>
+<li><strong>Wishlist heart</strong> — saves the product in the shopper’s browser. Toggle: <em>Enable wishlist</em> (<code>enable_wishlist</code>).</li>
+<li><strong>Compare</strong> — adds the product to the compare tray (see Compare system). Toggle: <em>Show product compare</em> (<code>enable_compare</code>; always on under both presets — see the preset note at top).</li>
+<li><strong>Badges</strong> — Sale, Sold out, New/Best Seller/Limited (tag-driven), shown over the image; sold-out chips stay readable in both presets.</li>
+</ul>
+<p><strong>On touch devices</strong> there is no hover, so the card actions stay visible as a compact <strong>icon bar</strong> at the bottom of the product image (quick add / quick view / wishlist / compare), with text labels for assistive tech. On desktop they reveal on hover or keyboard focus.</p>
+<hr>
+<h2>Product page</h2>
+<p>Template sections, in order: breadcrumb, main product, complementary products, product recommendations, related articles, product comparison, recently viewed, sticky add-to-cart.</p>
+<ul>
+<li><strong>Main product</strong> — media gallery, variant picker, quantity, buy buttons (incl. dynamic checkout), selling plans, pickup availability, inventory status, description, app blocks, and merchant <strong>collapsible rows</strong> (add <em>Collapsible row</em> blocks for shipping/warranty/details) and <em>Tech spec</em> rows. Desktop sticky buy box is optional (<em>Enable Sticky Buy Box (Desktop)</em>).</li>
+<li><strong>WhatsApp inquiry</strong> — an “Ask on WhatsApp” button under the buy area (also offered inside quick view). <strong>Off by default.</strong> Enable it with your number: Theme settings → <em>Enable WhatsApp product inquiry</em> (<code>enable_whatsapp_inquiry</code>), <em>WhatsApp number</em> (<code>whatsapp_phone_number</code>, international format), <em>WhatsApp button label</em>. The button opens WhatsApp with a pre-filled question about that product. No number = no button.</li>
+<li><strong>Complementary products</strong> — “Pairs well with”, powered by Shopify’s Search &amp; Discovery complementary recommendations. Heading/limit in the section settings.</li>
+<li><strong>Recommendations</strong> — Shopify’s product recommendations (“You may also like”), heading/limit configurable.</li>
+<li><strong>Related articles</strong> — shows blog articles <strong>you</strong> link to the product. See the metafield setup in PAGES-AND-METAFIELDS.md (<code>custom.related_articles</code>). Shows nothing when nothing is linked (an optional fallback to your latest blog posts exists, off by default: <em>Show latest posts when no articles are linked</em> + <em>Fallback blog</em>).</li>
+<li><strong>Recently viewed</strong> — browser-local rail of products the shopper viewed (excludes the product they’re on).</li>
+<li><strong>Sticky add-to-cart</strong> — a bar that appears after scrolling (<em>Show after scrolling (px)</em>, default 600), with optional image and variant picker; adds via AJAX.</li>
+</ul>
+<hr>
+<h2>Compare system</h2>
+<p>Shoppers tap <strong>Compare</strong> on product cards to collect up to <strong>3 products</strong> (stored in their browser). A compare bar lets them open the comparison; the product-comparison section (placed on collection and product templates) shows the bar/modal, and a dedicated <strong>Compare page</strong> renders the full table.</p>
+<ul>
+<li>Table rows: price, vendor, type, availability — always — plus any spec rows from the product metafield <code>custom.compare_specs</code> (see PAGES-AND-METAFIELDS.md).</li>
+<li><strong>Configure:</strong> Theme settings → <em>Show product compare</em> (<code>enable_compare</code>); <em>Product Comparison</em> section → <em>Max Products to Compare</em> (default 3).</li>
+<li><strong>Needs from you:</strong> a page with template <code>page.compare</code> (steps in PAGES-AND-METAFIELDS.md). The header/menu link is yours to add.</li>
+<li>Empty state is explained to the shopper; there is nothing to “fix” if it’s empty — they just haven’t added products yet.</li>
+</ul>
+<hr>
+<h2>Wishlist</h2>
+<p>Heart buttons on cards (and the header icon) save products to a wishlist stored <strong>in the shopper’s browser only</strong> — no account, no sync across devices, and the theme copy says exactly that.
+<strong>Needs from you:</strong> a page with template <code>page.wishlist</code>; pick it in Header → <em>Wishlist Page</em> so the header icon and empty-state links land there. Copy (heading, intro, empty text) is editable in the Wishlist section.</p>
+<hr>
+<h2>Smart recommendations (“You May Also Like”)</h2>
+<p>Rule-based recommendations you control — <strong>not</strong> machine learning, and never labelled “AI” in the theme.</p>
+<p>How matching works (scored, highest first):</p>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>tag_overlap</code></td>
+<td>+1 for each product tag shared with the current product</td>
+</tr>
+<tr>
+<td><code>metafield_match</code></td>
+<td>+3 for same <code>butterfly.use_case</code>, +2 for same <code>butterfly.skill_level</code></td>
+</tr>
+<tr>
+<td><code>best_match</code> (default)</td>
+<td>Combines both scorings above</td>
+</tr>
+</tbody></table>
+<p><strong>Configure:</strong> section settings → <em>Base Source</em> (current product / a collection / manual collection), <em>Strategy</em>, <em>Products to Show</em>, <em>Fallback Collection</em> (used when nothing matches), card options (badges, quick add, CTA text), optional “Best match” badge (<code>show_ai_badge</code> — off by default; it’s a plain “Best match” label, not an AI claim), and reason lines (e.g., “Perfect for your use case”).
+<strong>Needs from you (optional):</strong> the metafields <code>butterfly.use_case</code> and <code>butterfly.skill_level</code> on products for metafield matching; tags alone work too. Toggle globally: <em>Show smart recommendations</em> (<code>enable_smart_recommendations</code>; on under both presets).</p>
+<hr>
+<h2>Kit selector</h2>
+<p>A 4-step guided quiz (use case → budget → experience → result) built from blocks you author: <em>Use case</em>, <em>Budget</em>, and <em>Experience</em> option blocks, ending on <em>Recommendation</em> cards (product, title, description, three feature bullets) that you write and tag with the use-case/budget/experience values they suit. It ends on real, merchant-curated kits — there is no fake “analyzing” step.
+<strong>Configure:</strong> Kit selector section (on the homepage by default); global toggle <em>Show kit selector</em> (<code>enable_kit_selector</code>).</p>
+<hr>
+<h2>Bundle builder</h2>
+<p>A 3-step builder on a dedicated page: choose a base product, add optional accessories, review, and add the whole bundle to the cart in one click. Prices are the real product prices; the total updates live. There is no invented bundle discount — if you want bundle pricing, use Shopify discounts.
+<strong>Configure:</strong> page with template <code>page.bundle</code>; Bundle builder section → <em>Base Product</em> and <em>Add-on Product</em> blocks. Global toggle: <em>Show bundle builder</em> (<code>enable_bundle_builder</code>; on under both presets).</p>
+<hr>
+<h2>Gadget finder quiz</h2>
+<p>A 3-question helper (“What will you use it for?”, budget, priority — all editable). Each answer is mapped to a product tag; products in a collection you choose are ranked by how many chosen tags they carry, and the top matches render as cards. Plain tag matching — stated as such in the section’s own copy. If nothing matches every answer, shoppers see the closest picks with a note saying so.
+<strong>Configure:</strong> Gadget finder section → <em>Recommendation pool</em> collection, <em>Products to show</em>, question texts; <em>Answer</em> blocks (each: which question, label, tag).</p>
+<hr>
+<h2>Deal countdown</h2>
+<p>A sale section with a countdown to an end date <strong>you</strong> set — used for real sales only. After the date, it shows your “expired” message or hides itself, and it can show products from a deals collection plus a featured product.
+<strong>Configure:</strong> Deal countdown section → <em>Sale end date/time</em> (<code>end_datetime</code>, format <code>YYYY-MM-DD HH:MM</code> or ISO), <em>Auto-hide when expired</em> (<code>hide_expired</code>), <em>Expired message</em>, <em>Deals collection</em>, <em>Featured product</em>, quick-add toggle. The section’s own settings remind you: real, merchant-set sale end times only.</p>
+<hr>
+<h2>Promo popup</h2>
+<p>A newsletter/promo popup placed in the Footer group. <strong>It ships DISABLED by default</strong> — nothing pops up on a fresh install. To use it: enable the section in the Footer group and write your heading/text (optional image, email form, success message).</p>
+<ul>
+<li>Show on all pages or homepage only (<em>Show on</em>), delay (default 8s), and a <strong>frequency cap</strong>: after a close or signup it stays hidden for the days you set (default 30) via browser storage.</li>
+<li>Default copy is neutral (“Join our list”); any offer wording is yours to write. The popup adds no countdowns or discount promises by itself.</li>
+</ul>
+<hr>
+<h2>FAB help button (off by default)</h2>
+<p>An optional floating help button (bottom-right). It appears only when enabled <strong>and</strong> you’ve given it somewhere to go: Theme settings → <em>Show FAB help (Shopify Inbox or fallback links)</em> (<code>enable_fab_help</code>, off in both presets) plus a <em>FAB help page</em> (<code>fab_help_page</code>) or <em>FAB help URL</em> (<code>fab_help_url</code>). It links shoppers to that page/URL; it does not embed a chat widget by itself.</p>
+<hr>
+<h2>Footer</h2>
+<p>Merchandisable columns and trust elements:</p>
+<ul>
+<li><strong>Logo/shop-name fallback</strong> (same behaviour as the header), mission text, and social icons (Facebook, Instagram, TikTok, YouTube, X, Pinterest — from Theme settings → Social media; icons show only for URLs you enter).</li>
+<li><strong>Three menu columns</strong> — Quick links, Support, and a <strong>Legal / “Terms &amp; Conditions”</strong> column — each bound to a menu you choose (Footer section → <em>Links Menu</em>, <em>Support Menu</em>, <em>Legal Menu</em>). Point the legal column at a menu containing your policy pages.</li>
+<li><strong>Newsletter</strong> block (heading/text editable) using Shopify’s customer signup form.</li>
+<li><strong>Trust badges</strong> (two text slots; first defaults to “Secure Checkout”) and optional <strong>accepted-payment icons</strong> (<em>Show accepted payment icons</em>).</li>
+</ul>
+<hr>
+<h2>Blog &amp; article pages</h2>
+<p>Standard Shopify blog, themed end-to-end:</p>
+<ul>
+<li><strong>Blog page</strong> (<code>main-blog</code>): paginated article grid with images, dates/authors, excerpts. Articles per page configurable.</li>
+<li><strong>Article page</strong> (<code>main-article</code>): full article layout with comments support.</li>
+</ul>
+<p>You post from <strong>Shopify admin → Content → Blog posts</strong> — no theme work needed. Link the blog wherever you like (main menu, footer menu, mobile More sheet <em>Blog</em> target). Products can surface related posts with the Related articles section above.</p>
+<hr>
+<h2>Track order page</h2>
+<p>A page where shoppers enter order details and are sent to your tracking provider. The form is a configurable GET form: choose a provider (<strong>AfterShip</strong>, <strong>Parcel Panel</strong>, or <strong>custom</strong>) or paste any tracking URL, and set the query parameter names (order number, email, optional postal code).
+<strong>Needs from you:</strong> a page with template <code>page.track-order</code> and your provider/branded tracking URL (main-track-order section settings).</p>
+<hr>
+<h2>Store locator (Find a store)</h2>
+<p>A store list with optional hero, text search, “near me” geolocation with distances (km/mi), service badges, opening hours, phone/email, map links, and store photos.
+<strong>Configure:</strong> page with template <code>page.find-a-store</code>, then <em>Store</em> blocks in the Store locator section (name, address, phone, email, hours, map URL, latitude/longitude, image, services). Link it from the header utility bar or menus.</p>
+<hr>
+<h2>Collections, search results &amp; filters</h2>
+<ul>
+<li><strong>Collection pages:</strong> filter panel + sortable product grid (24 per page pagination), wired to Shopify’s standard filters.</li>
+<li><strong>Search page:</strong> the same faceted filters and sorting on search results, with product/collection/page result types.</li>
+<li><strong>Filters come from the Shopify Search &amp; Discovery app.</strong> The theme renders whatever filters you configure there (availability, price, vendor, tags, metafields…). If a filter seems missing, it’s an app-side setting — see FAQ.</li>
+</ul>
+<hr>
+<h2>Homepage &amp; content sections</h2>
+<ul>
+<li><strong>Butterfly Hero</strong> — headline, subtext, image, primary/secondary buttons, optional <em>Trust signal</em> blocks.</li>
+<li><strong>Butterfly Slideshow</strong> — image/video slides with autoplay, arrows, dots, focal points.</li>
+<li><strong>Butterfly Product Grid</strong> — a collection’s products with card actions; custom button text.</li>
+<li><strong>Featured collections / Featured product</strong> — collection cards; a single-product spotlight using the standard product blocks.</li>
+<li><strong>Specs sections</strong> — <em>AI Tech Specs</em> block list (<code>butterfly-specs</code>; add <em>Spec</em> blocks) and a scrolling specs layout (<code>butterfly-specs-scrolly</code>). Names aside, these simply present specs you write.</li>
+<li><strong>Newsletter section</strong> — standalone email signup for the homepage.</li>
+<li><strong>FAQ</strong> — <em>FAQ item</em> blocks (question + rich-text answer) under your heading.</li>
+<li><strong>Testimonials</strong> — <em>Testimonial</em> blocks (quote, author name/title, optional photo, optional star rating 0–5).</li>
+</ul>
+<blockquote>
+<p><strong>Honest-launch note (testimonials):</strong> the shipped testimonial text is placeholder copy (“Add a customer quote here — replace this placeholder with real feedback…”) with zero ratings. Replace every block with genuine customer feedback before you publish, or remove the section. Never present placeholder quotes as real reviews.</p>
+</blockquote>
+<hr>
+<h2>Back-to-top &amp; small print</h2>
+<ul>
+<li><strong>Back-to-top</strong> floating button (Theme settings → <code>enable_back_to_top</code>, on by default).</li>
+<li><strong>Contact page</strong> (<code>main-contact</code>) and standard <strong>404, password, gift-card, cart, account</strong> templates are included and styled to match.</li>
+<li>Customer accounts use Shopify’s native account components where applicable.</li>
+</ul>
+
+<footer>Butterfly Neural by VOOQIO INC · <a href="https://butterfly-ai-studios.github.io/theme-support/">Theme support</a></footer>
+</div>
+</body>
+</html>
